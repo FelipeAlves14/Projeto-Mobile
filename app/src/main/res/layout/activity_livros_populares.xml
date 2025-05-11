@@ -57,17 +57,83 @@
 
         </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="match_parent"
-            android:layout_height="384dp"
-            app:srcCompat="@drawable/livrocard" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    app:srcCompat="@drawable/livrocard"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="Título do livro - Fulano da Silva "
+                    android:textStyle="bold"
+                    android:textColor="#3D3569"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean maximus mattis orci, ac molestie orci congue et. Nullam commodo tempor suscipit. Nulla porta tellus ut tincidunt eleifend. Proin faucibus posuere tellus et luctus. Nullam imperdiet sem id nulla pretium, sed elementum felis vulputate. Morbi fermentum id nibh sed viverra."
+                    android:textColor="#000000"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Começar a ler"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#3D3569"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
-        <ImageView
-            android:id="@+id/imageView7"
-            android:layout_width="match_parent"
-            android:layout_height="377dp"
-            app:srcCompat="@drawable/livrocard" />
+        <androidx.cardview.widget.CardView
+            android:layout_width="350dp"
+            android:layout_height="wrap_content"
+            app:cardCornerRadius="20dp"
+            android:layout_margin="20dp"
+            android:layout_gravity="center">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:orientation="vertical"
+                android:layout_margin="20dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    app:srcCompat="@drawable/livrocard"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
+                    android:text="Título do livro - Fulano da Silva "
+                    android:textStyle="bold"
+                    android:textColor="#3D3569"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aenean maximus mattis orci, ac molestie orci congue et. Nullam commodo tempor suscipit. Nulla porta tellus ut tincidunt eleifend. Proin faucibus posuere tellus et luctus. Nullam imperdiet sem id nulla pretium, sed elementum felis vulputate. Morbi fermentum id nibh sed viverra."
+                    android:textColor="#000000"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="start"
+                    android:text="Começar a ler"
+                    android:textAllCaps="false"
+                    android:backgroundTint="#3D3569"/>
+            </LinearLayout>
+        </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
