@@ -1,3 +1,35 @@
 <resources>
     <string name="app_name">PratiLer</string>
+    <string name="logo">Logo do PratiLer</string>
+    <string name="placeholderPesquisa">Pesquisar...</string>
+    <string name="headerPerfil">Perfil</string>
+    <string name="tituloForm">Progresso na leitura</string>
+    <string name="labelLivro">Livro: </string>
+    <string name="labelPaginaInicial">Da página: </string>
+    <string name="labelPaginaFinal">Até a página: </string>
+    <string name="placeholderComentário">O que você está achando do livro?</string>
+    <string name="placeholderPaginaInicial">0</string>
+    <string name="botaoPostarTexto">Postar</string>
+    <string name="footerEstante">Pinha estante</string>
+    <string name="footerLivrosPopulares">Livros populares</string>
+    <string name="footerPostagens">Postagens</string>
+    <string name="footerSeguindo">Seguindo</string>
+    <string name="footerPostar">Postar</string>
+    <string name="footerLivrosPopularesSelecionado">Livros populares selecionado</string>
+    <string name="footerPostagensSelecionado">Postagens selecionado</string>
+    <string name="footerPostarSelecionado">Postar selecionado</string>
+    <string name="perfilPostagem">Perfil da postagem</string>
+    <string name="leitorPostagem">Larissa Booktoker</string>
+    <string name="dataPostagem">18/07/2024</string>
+    <string name="botaoSeguirTexto">Seguir</string>
+    <string name="paginasPostagem">Da página 128 à página 132</string>
+    <string name="tituloPostagem">Como eu era antes de você - Jojo Moyes</string>
+    <string name="textoLorem">Mussum Ipsum, cacilds vidis litro abertis.  Cevadis im ampola pa arma uma pindureta. Manduma pindureta quium dia nois paga. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Negão é teu passadis, eu sou faxa pretis.</string>
+    <string name="curtida">Curtida</string>
+    <string name="naoCurtida">Não Curtida</string>
+    <string name="quantidadeCurtidas">12</string>
+    <string name="capaLivro">Capa do livro</string>
+    <string name="tituloAutorLivro">O Vilarejo - Raphael Montes</string>
+    <string name="botaoComecarLeituraTexto">Começar a ler</string>
+
 </resources>
