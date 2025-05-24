@@ -16,8 +16,9 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="wrap_content"
             app:cardBackgroundColor="#fefefeff"
+            android:layout_marginTop="25dp"
             app:cardCornerRadius="20dp">
 
             <LinearLayout
@@ -26,31 +27,30 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/logoPratiler"
                     android:layout_width="wrap_content"
                     android:layout_height="46dp"
                     android:layout_gravity="center"
-                    android:contentDescription="Pratiler"
+                    android:contentDescription="@string/logo"
                     app:srcCompat="@drawable/pratiler" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/barraPesquisa"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:autofillHints="livros"
                     android:ems="10"
-                    android:hint="Pesquisar..."
-                    android:inputType="text"
-                    android:text="Pesquisar..." />
+                    android:hint="@string/placeholderPesquisa"
+                    android:inputType="text" />
 
                 <ImageView
-                    android:id="@+id/imageView2"
-                    android:layout_width="wrap_content"
+                    android:id="@+id/perfilUsuario"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
                     android:layout_weight="1"
-                    android:contentDescription="Perfil"
+                    android:contentDescription="@string/headerPerfil"
                     app:srcCompat="@drawable/perfil" />
             </LinearLayout>
 
@@ -59,41 +59,46 @@
         <androidx.cardview.widget.CardView
             android:layout_width="300dp"
             android:layout_gravity="center_horizontal"
+            android:backgroundTint="#fefefe"
             android:layout_margin="20dp"
             app:cardCornerRadius="20dp"
-            android:layout_height="400dp" >
+            android:layout_height="wrap_content" >
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:gravity="center"
                 android:orientation="vertical" >
 
                 <TextView
-                    android:id="@+id/textView"
-                    android:layout_width="match_parent"
+                    android:id="@+id/tituloForm"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="20dp"
                     android:layout_marginBottom="15dp"
-                    android:text="Progresso na leitura"
+                    android:text="@string/tituloForm"
                     android:textColor="#3D3569"
                     android:textStyle="bold" />
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal" >
                     <TextView
+                        android:id="@+id/labelLivro"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="Livro: "
-                        android:textColor="#3D3569"/>
+                        android:text="@string/labelLivro"
+                        android:textColor="#3D3569" />
                     <Spinner
-                        android:id="@+id/spinner"
-                        android:layout_width="148dp"
+                        android:id="@+id/selectLivro"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:minHeight="48dp"
+                        android:backgroundTint="#000"
                         android:autofillHints="name" />
                 </LinearLayout>
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical" >
                     <LinearLayout
@@ -101,38 +106,63 @@
                         android:layout_height="wrap_content"
                         android:orientation="horizontal" >
                         <TextView
+                            android:id="@+id/labelPaginaInicial"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Da página: "
+                            android:text="@string/labelPaginaInicial"
                             android:textColor="#3D3569"/>
                         <EditText
+                            android:id="@+id/inputPaginaInicial"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
-                            android:hint="0" />
+                            android:minHeight="48dp"
+                            android:inputType="number"
+                            android:backgroundTint="#000"
+                            android:textColor="#000"
+                            android:textColorHint="#B7B7B7"
+                            android:hint="@string/placeholderPaginaInicial"
+                            android:autofillHints="dicaPaginaInicial"/>
                     </LinearLayout>
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:orientation="horizontal">
                         <TextView
+                            android:id="@+id/labelPaginaFinal"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:text="Até a página: "
+                            android:text="@string/labelPaginaFinal"
                             android:textColor="#3D3569"/>
                         <EditText
+                            android:id="@+id/inputPaginaFinal"
                             android:layout_width="100dp"
-                            android:layout_height="wrap_content" />
+                            android:layout_height="wrap_content"
+                            android:minHeight="48dp"
+                            android:autofillHints="finalPage"
+                            android:inputType="number"
+                            android:backgroundTint="#000"
+                            android:textColor="#000"/>
                     </LinearLayout>
                 </LinearLayout>
                 <EditText
-                    android:layout_width="match_parent"
+                    android:id="@+id/inputComentario"
+                    android:layout_width="wrap_content"
                     android:layout_height="150dp"
                     android:gravity="start"
-                    android:hint="O que está achando do livro?"/>
+                    android:hint="@string/placeholderComentário"
+                    android:autofillHints="comment"
+                    android:textColor="#000"
+                    android:textColorHint="#B7B7B7"
+                    android:backgroundTint="#000"
+                    android:inputType="textLongMessage"/>
                 <Button
+                    android:id="@+id/botaoPostar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Postar"
+                    android:layout_gravity="start"
+                    android:layout_marginVertical="10dp"
+                    android:layout_marginHorizontal="5dp"
+                    android:text="@string/botaoPostarTexto"
                     android:textColor="#f6f6f6"
                     android:backgroundTint="#3D3569"
                     android:textAllCaps="false"/>
@@ -142,8 +172,9 @@
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="170dp">
+            android:layout_height="58dp"
+            android:layout_marginTop="135dp"
+            android:backgroundTint="#fefefe">
 
             <LinearLayout
                 android:layout_width="match_parent"
@@ -151,39 +182,44 @@
                 android:orientation="horizontal">
 
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/minhaEstante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/footerEstante"
                     app:srcCompat="@drawable/livro" />
                 <ImageView
-                    android:id="@+id/imageView12"
+                    android:id="@+id/livrosPopulares"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/footerLivrosPopulares"
                     app:srcCompat="@drawable/estrela" />
                 <ImageView
-                    android:id="@+id/imageView13"
+                    android:id="@+id/postagens"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/footerPostagens"
                     app:srcCompat="@drawable/postagens" />
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/seguindo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/footerSeguindo"
                     app:srcCompat="@drawable/seguindo" />
                 <ImageView
-                    android:id="@+id/imageView15"
+                    android:id="@+id/postar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:layout_gravity="center_vertical"
+                    android:contentDescription="@string/footerPostarSelecionado"
                     app:srcCompat="@drawable/postar_selecionado" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>

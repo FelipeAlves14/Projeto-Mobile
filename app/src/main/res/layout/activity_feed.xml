@@ -2,6 +2,7 @@
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".FeedActivity"
@@ -16,7 +17,8 @@
         <androidx.cardview.widget.CardView
             android:id="@+id/cardView"
             android:layout_width="match_parent"
-            android:layout_height="75dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="25dp"
             app:cardBackgroundColor="#fefefe"
             app:cardCornerRadius="20dp">
             <LinearLayout
@@ -24,28 +26,27 @@
                 android:layout_height="80dp"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/logoPratiler"
                     android:layout_width="wrap_content"
                     android:layout_height="46dp"
                     android:layout_gravity="center"
-                    android:contentDescription="Pratiler"
+                    android:contentDescription="@string/logo"
                     app:srcCompat="@drawable/pratiler" />
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/barraPesquisa"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
                     android:layout_gravity="center"
                     android:autofillHints="livros"
                     android:ems="10"
-                    android:hint="Pesquisar..."
-                    android:inputType="text"
-                    android:text="Pesquisar..." />
+                    android:hint="@string/placeholderPesquisa"
+                    android:inputType="text" />
                 <ImageView
-                    android:id="@+id/imageView2"
+                    android:id="@+id/perfilUsuario"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_gravity="center"
-                    android:contentDescription="Perfil"
+                    android:contentDescription="@string/headerPerfil"
                     app:srcCompat="@drawable/perfil" />
             </LinearLayout>
         </androidx.cardview.widget.CardView>
@@ -71,50 +72,57 @@
                     android:layout_height="wrap_content">
 
                     <ImageView
-                        android:id="@+id/imageView4"
+                        android:id="@+id/perfilLeitor1"
                         android:layout_width="66dp"
-                        android:contentDescription="Perfil"
+                        android:contentDescription="@string/perfilPostagem"
                         android:layout_height="wrap_content"
                         app:srcCompat="@drawable/perfil_2" />
 
                     <TextView
+                        android:id="@+id/nomeLeitor1"
                         android:layout_width="137dp"
                         android:layout_height="wrap_content"
-                        android:text="Larissa Booktoker"
+                        android:text="@string/leitorPostagem"
                         android:textColor="#3D3569"
                         android:textStyle="bold" />
 
                     <TextView
+                        android:id="@+id/dataPostagem1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="18/07/2024"
+                        android:text="@string/dataPostagem"
                         android:textColor="#6761A8"/>
                 </LinearLayout>
 
                 <Button
+                    android:id="@+id/botaoSeguir1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
                     android:backgroundTint="#221D57"
-                    android:text="Seguir"
+                    android:text="@string/botaoSeguirTexto"
+                    android:textColor="#fefefe"
                     android:textAllCaps="false"/>
 
                 <TextView
+                    android:id="@+id/paginasPostagem1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Da página 128 à página 132"
+                    android:text="@string/paginasPostagem"
                     android:textColor="#3D3569" />
                 <TextView
+                    android:id="@+id/tituloPostagem1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Como eu era antes de você - Jojo Moyes"
+                    android:text="@string/tituloPostagem"
                     android:textStyle="bold"
                     android:textColor="#000000"/>
                 <TextView
+                    android:id="@+id/textoPostagem1"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginVertical="10dp"
-                    android:text="Mussum Ipsum, cacilds vidis litro abertis.  Cevadis im ampola pa arma uma pindureta. Manduma pindureta quium dia nois paga. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Negão é teu passadis, eu sou faxa pretis."
+                    android:text="@string/textoLorem"
                     android:textColor="#000000" />
 
                 <LinearLayout
@@ -124,102 +132,18 @@
                     android:orientation="horizontal">
 
                     <ImageView
+                        android:id="@+id/curtida1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:contentDescription="Curtida"
+                        android:contentDescription="@string/curtida"
                         app:srcCompat="@drawable/curtida" />
 
                     <TextView
+                        android:id="@+id/quantidadeCurtidas1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_vertical"
-                        android:text="12"
-                        android:textColor="#3D3569"
-                        android:textSize="20sp"
-                        android:textStyle="bold" />
-                </LinearLayout>
-            </LinearLayout>
-
-        </androidx.cardview.widget.CardView>
-
-        <androidx.cardview.widget.CardView
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginTop="20dp"
-            android:backgroundTint="#fefefe"
-            app:cardCornerRadius="20dp">
-
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_margin="20dp"
-
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <ImageView
-                        android:id="@+id/imageView5"
-                        android:layout_width="66dp"
-                        android:contentDescription="Perfil"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/perfil_2" />
-
-                    <TextView
-                        android:layout_width="137dp"
-                        android:layout_height="wrap_content"
-                        android:text="Larissa Booktoker"
-                        android:textColor="#3D3569"
-                        android:textStyle="bold" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="18/07/2024"
-                        android:textColor="#6761A8"/>
-                </LinearLayout>
-
-                <Button
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:backgroundTint="#221D57"
-                    android:text="Seguir"
-                    android:textAllCaps="false"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Da página 128 à página 132"
-                    android:textColor="#3D3569" />
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="Como eu era antes de você - Jojo Moyes"
-                    android:textStyle="bold"
-                    android:textColor="#000000"/>
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:text="Mussum Ipsum, cacilds vidis litro abertis.  Cevadis im ampola pa arma uma pindureta. Manduma pindureta quium dia nois paga. Mauris nec dolor in eros commodo tempor. Aenean aliquam molestie leo, vitae iaculis nisl. Negão é teu passadis, eu sou faxa pretis."
-                    android:textColor="#000000" />
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:orientation="horizontal">
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        app:srcCompat="@drawable/nao_curtida" />
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_gravity="center_vertical"
-                        android:text="12"
+                        android:text="@string/quantidadeCurtidas"
                         android:textColor="#3D3569"
                         android:textSize="20sp"
                         android:textStyle="bold" />
@@ -231,50 +155,51 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            app:cardCornerRadius="20dp">
+            android:layout_marginTop="200dp"
+            android:backgroundTint="#fefefe">
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="horizontal">
                 <ImageView
-                    android:id="@+id/imageView11"
+                    android:id="@+id/minhaEstante"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:contentDescription="Livro Estante"
+                    android:contentDescription="@string/footerEstante"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/livro" />
                 <ImageView
-                    android:id="@+id/imageView12"
+                    android:id="@+id/livrosPopulares"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:contentDescription="Estrela Populares"
+                    android:contentDescription="@string/footerLivrosPopulares"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/estrela" />
                 <ImageView
-                    android:id="@+id/imageView13"
+                    android:id="@+id/postagens"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:contentDescription="Postagens Selecionado"
+                    android:contentDescription="@string/footerPostagens"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/postagens_selecionado" />
                 <ImageView
-                    android:id="@+id/imageView14"
+                    android:id="@+id/seguindo"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:contentDescription="Seguindo"
+                    android:contentDescription="@string/footerSeguindo"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/seguindo" />
                 <ImageView
-                    android:id="@+id/imageView15"
+                    android:id="@+id/postar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:contentDescription="Publicar"
+                    android:contentDescription="@string/footerPostarSelecionado"
                     android:layout_gravity="center_vertical"
                     app:srcCompat="@drawable/postar" />
             </LinearLayout>
