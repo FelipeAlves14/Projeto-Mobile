@@ -34,7 +34,7 @@
                     android:contentDescription="@string/logo"
                     app:srcCompat="@drawable/pratiler" />
 
-                <EditText
+                <com.example.pratiler.Input
                     android:id="@+id/barraPesquisa"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
@@ -42,6 +42,7 @@
                     android:autofillHints="livros"
                     android:ems="10"
                     android:hint="@string/placeholderPesquisa"
+                    android:textColor="#000"
                     android:inputType="text" />
 
                 <ImageView
@@ -100,6 +101,7 @@
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginVertical="10dp"
                     android:orientation="vertical" >
                     <LinearLayout
                         android:layout_width="wrap_content"
@@ -111,15 +113,13 @@
                             android:layout_height="wrap_content"
                             android:text="@string/labelPaginaInicial"
                             android:textColor="#3D3569"/>
-                        <EditText
+                        <com.example.pratiler.Input
                             android:id="@+id/inputPaginaInicial"
                             android:layout_width="116dp"
                             android:layout_height="wrap_content"
                             android:minHeight="48dp"
                             android:inputType="number"
-                            android:backgroundTint="#000"
                             android:textColor="#000"
-                            android:textColorHint="#B7B7B7"
                             android:hint="@string/placeholderPaginaInicial"
                             android:autofillHints="dicaPaginaInicial"/>
                     </LinearLayout>
@@ -133,18 +133,17 @@
                             android:layout_height="wrap_content"
                             android:text="@string/labelPaginaFinal"
                             android:textColor="#3D3569"/>
-                        <EditText
+                        <com.example.pratiler.Input
                             android:id="@+id/inputPaginaFinal"
                             android:layout_width="100dp"
                             android:layout_height="wrap_content"
                             android:minHeight="48dp"
                             android:autofillHints="finalPage"
                             android:inputType="number"
-                            android:backgroundTint="#000"
                             android:textColor="#000"/>
                     </LinearLayout>
                 </LinearLayout>
-                <EditText
+                <com.example.pratiler.Input
                     android:id="@+id/inputComentario"
                     android:layout_width="wrap_content"
                     android:layout_height="150dp"
@@ -152,8 +151,6 @@
                     android:hint="@string/placeholderComentário"
                     android:autofillHints="comment"
                     android:textColor="#000"
-                    android:textColorHint="#B7B7B7"
-                    android:backgroundTint="#000"
                     android:inputType="textLongMessage"/>
                 <Button
                     android:id="@+id/botaoPostar"
@@ -173,7 +170,7 @@
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginTop="135dp"
+            android:layout_marginTop="120dp"
             android:backgroundTint="#fefefe">
 
             <LinearLayout
