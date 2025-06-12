@@ -1,28 +1,68 @@
 package com.example.pratiler;
 
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pratiler.adapters.RecyclerViewPostagem.PostagemAdapter;
+import com.example.pratiler.models.Leitor;
+import com.example.pratiler.models.Livro;
+import com.example.pratiler.models.Postagem;
+
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 public class FeedActivity extends AppCompatActivity {
+
+    private List<Postagem> listarPostagens () {
+        List<Postagem> postagens = new ArrayList<Postagem>();
+        postagens.add(new Postagem("Adorei a reviravolta no capítulo 7! Nunca imaginei que o vilão fosse na verdade o irmão gêmeo do protagonista.",
+                new Leitor("Ana Silva", "ana.booklover", "ana.silva@email.com", "ana_profile.jpg"),
+                new Livro("O Jogo dos Espelhos", "Um thriller psicológico sobre identidade e duplicidade", "Carlos Ribeiro", "jogo_espelhos.jpg"),
+                112, 120, new Date(122, 4, 15), 24, true));
+
+        postagens.add(new Postagem("A descrição da paisagem nessa parte é tão vívida que me senti transportado para o local!",
+                new Leitor("Pedro Almeida", "pedro_reads", "pedro.a@mail.com", "pedro_avatar.png"),
+                new Livro("Montanhas da Alma", "Uma jornada de autodescoberta nas montanhas do Himalaia", "Clara Montenegro", "montanhas_alma.jpg"),
+                45, 48, new Date(123, 1, 28), 15, false));
+
+        postagens.add(new Postagem("Alguém mais ficou confuso com a linha do tempo nesses capítulos? Achei que poderia ser mais claro.",
+                new Leitor("Mariana Costa", "mari.literaria", "maricosta@email.com", "mari_prof_pic.jpg"),
+                new Livro("Tempos Entrelaçados", "Ficção científica sobre realidades paralelas e escolhas", "Fernando Pessoto", "tempos_entrelacados.jpg"),
+                89, 95, new Date(123, 6, 3), 8, true));
+
+        postagens.add(new Postagem("Esse diálogo na página 156 me fez chorar! Tão profundo e verdadeiro...",
+                new Leitor("Rafael Souza", "rafa_books", "rafasouza@mail.com", "rafael_souza.jpg"),
+                new Livro("O Silêncio Entre Nós", "Drama sobre relacionamentos e comunicação não-verbal", "Juliana Vaz", "silence_between.jpg"),
+                156, 157, new Date(123, 9, 18), 32, false));
+
+        postagens.add(new Postagem("Recomendo fortemente esse livro! A construção do mundo é incrível e os personagens são muito bem desenvolvidos.",
+                new Leitor("Beatriz Lima", "bea.leitora", "beatriz.leitora@email.com", "bea_profile_pic.png"),
+                new Livro("O Reino de Cristal", "Fantasia épica sobre um reino mágico à beira da guerra", "Roberto Farias", "reino_cristal.jpg"),
+                1, 320, new Date(123,11,5), 45, true));
+
+        return postagens;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_feed);
+        RecyclerView postagens = findViewById(R.id.listaPostagens);
+        postagens.setLayoutManager(new LinearLayoutManager(this));
+        postagens.setAdapter(new PostagemAdapter(listarPostagens()));
         ImageView postar = findViewById(R.id.postar);
         postar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,46 +77,6 @@ public class FeedActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent("LIVROS_POPULARES");
                 startActivity(i);
-            }
-        });
-        TextView nomeLeitor = findViewById(R.id.nomeLeitor1);
-        Button seguir = findViewById(R.id.botaoSeguir1);
-        seguir.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if(seguir.getText() == "Seguir"){
-                    seguir.setText("Seguindo");
-                    seguir.setTextColor(0xff221D57);
-                    seguir.setBackgroundColor(0xfffefefe);
-                    Toast.makeText(FeedActivity.this, "Agora você segue " + nomeLeitor.getText().toString(), LENGTH_SHORT).show();
-                }
-                else{
-                    seguir.setText("Seguir");
-                    seguir.setTextColor(0xfffefefe);
-                    seguir.setBackgroundColor(0xff221D57);
-                    Toast.makeText(FeedActivity.this, "Você deixou de seguir " + nomeLeitor.getText().toString(), LENGTH_SHORT).show();
-                }
-            }
-        });
-        ImageView curtida = findViewById(R.id.curtida1);
-        curtida.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView quantidadeCurtidas = findViewById(R.id.quantidadeCurtidas1);
-                if(Integer.parseInt(quantidadeCurtidas.getText().toString()) == 12){
-                    curtida.setContentDescription("Não curtida");
-                    curtida.setImageResource(R.drawable.nao_curtida);
-                    String curtidas = quantidadeCurtidas.getText().toString();
-                    Integer curtidas_int = Integer.parseInt(curtidas) - 1;
-                    quantidadeCurtidas.setText(curtidas_int.toString());
-                }
-                else{
-                    curtida.setContentDescription("Curtida");
-                    curtida.setImageResource(R.drawable.curtida);
-                    String curtidas = quantidadeCurtidas.getText().toString();
-                    Integer curtidas_int = Integer.parseInt(curtidas) + 1;
-                    quantidadeCurtidas.setText(curtidas_int.toString());
-                }
             }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {

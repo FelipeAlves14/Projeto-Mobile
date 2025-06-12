@@ -6,7 +6,7 @@ public class Leitor {
     String email;
     String fotoPerfil;
 
-    Leitor(String nome, String username, String email, String fotoPerfil){
+    public Leitor(String nome, String username, String email, String fotoPerfil){
         this.nome = nome;
         this.username = username;
         this.email = email;

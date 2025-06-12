@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_gravity="center"
+    android:layout_height="wrap_content">
+
+    <androidx.cardview.widget.CardView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:backgroundTint="#fefefe"
+        android:gravity="center"
+        app:cardCornerRadius="20dp"
+        android:layout_marginVertical="20dp"
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/perfilLeitor"
+                    android:layout_width="66dp"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/perfilPostagem"
+                    app:srcCompat="@drawable/perfil_2" />
+
+                <TextView
+                    android:id="@+id/nomeLeitor"
+                    android:layout_width="137dp"
+                    android:layout_height="wrap_content"
+                    android:text="@string/leitorPostagem"
+                    android:textColor="#3D3569"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:id="@+id/dataPostagem"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/dataPostagem"
+                    android:textColor="#6761A8" />
+            </LinearLayout>
+
+            <Button
+                android:id="@+id/botaoSeguir"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:backgroundTint="#221D57"
+                android:text="@string/botaoSeguirTexto"
+                android:textAllCaps="false"
+                android:textColor="#fefefe" />
+
+            <TextView
+                android:id="@+id/paginasPostagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/paginasPostagem"
+                android:textColor="#3D3569" />
+
+            <TextView
+                android:id="@+id/tituloPostagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/tituloPostagem"
+                android:textColor="#000000"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/textoPostagem"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:text="@string/textoLorem"
+                android:textColor="#000000" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginVertical="10dp"
+                android:orientation="horizontal"
+                tools:ignore="UseCompoundDrawables">
+
+                <ImageView
+                    android:id="@+id/curtida"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="@string/curtida"
+                    app:srcCompat="@drawable/curtida" />
+
+                <TextView
+                    android:id="@+id/quantidadeCurtidas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center_vertical"
+                    android:text="@string/quantidadeCurtidas"
+                    android:textColor="#3D3569"
+                    android:textSize="20sp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</LinearLayout>

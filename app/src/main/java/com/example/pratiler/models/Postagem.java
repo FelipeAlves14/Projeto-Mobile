@@ -9,14 +9,18 @@ public class Postagem {
     Integer paginaInicial;
     Integer paginaFinal;
     Date dataPostagem;
+    Integer curtidas;
+    Boolean curtido;
 
-    Postagem(String texto, Leitor leitor, Livro livro, Integer paginaInicial, Integer paginaFinal, Date dataPostagem){
+    public Postagem(String texto, Leitor leitor, Livro livro, Integer paginaInicial, Integer paginaFinal, Date dataPostagem, Integer curtidas, Boolean curtido){
         this.texto = texto;
         this.leitor = leitor;
         this.livro = livro;
         this.paginaInicial = paginaInicial;
         this.paginaFinal = paginaFinal;
         this.dataPostagem = dataPostagem;
+        this.curtidas = curtidas;
+        this.curtido = curtido;
     }
     public String getTexto() {
         return texto;
@@ -42,6 +46,14 @@ public class Postagem {
         return dataPostagem;
     }
 
+    public Integer getCurtidas() {
+        return curtidas;
+    }
+
+    public Boolean getCurtido() {
+        return curtido;
+    }
+
     public void setTexto(String texto) {
         this.texto = texto;
     }
@@ -64,5 +76,13 @@ public class Postagem {
 
     public void setDataPostagem(Date dataPostagem) {
         this.dataPostagem = dataPostagem;
+    }
+
+    public void setCurtidas(Integer curtidas) {
+        this.curtidas = curtidas;
+    }
+
+    public void setCurtido(Boolean curtido) {
+        this.curtido = curtido;
     }
 }

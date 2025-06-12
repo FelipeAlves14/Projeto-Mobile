@@ -19,7 +19,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:cardBackgroundColor="#fefefeff"
-            android:layout_marginTop="25dp"
             app:cardCornerRadius="20dp">
 
             <LinearLayout
@@ -35,7 +34,7 @@
                     android:contentDescription="@string/logo"
                     app:srcCompat="@drawable/pratiler" />
 
-                <EditText
+                <com.example.pratiler.Input
                     android:id="@+id/barraPesquisa"
                     android:layout_width="wrap_content"
                     android:layout_height="50dp"
@@ -57,100 +56,16 @@
 
         </androidx.cardview.widget.CardView>
 
-        <androidx.cardview.widget.CardView
-            android:layout_width="350dp"
-            android:layout_height="wrap_content"
-            app:cardCornerRadius="20dp"
-            android:layout_margin="20dp"
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/livros"
+            android:layout_width="wrap_content"
+            android:layout_height="0dp"
             android:layout_gravity="center"
-            android:backgroundTint="#fefefe">
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:orientation="vertical"
-                android:layout_margin="20dp">
-                <ImageView
-                    android:id="@+id/capaLivro1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:contentDescription="@string/capaLivro"
-                    app:srcCompat="@drawable/livrocard"/>
-                <TextView
-                    android:id="@+id/tituloLivro1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="10dp"
-                    android:text="@string/tituloAutorLivro"
-                    android:textStyle="bold"
-                    android:textColor="#3D3569"/>
-                <TextView
-                    android:id="@+id/sinopseLivro1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="@string/textoLorem"
-                    android:textColor="#000000"/>
-                <Button
-                    android:id="@+id/comecarLeitura1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_gravity="start"
-                    android:text="@string/botaoComecarLeituraTexto"
-                    android:textAllCaps="false"
-                    android:textColor="#fefefe"
-                    android:backgroundTint="#3D3569"/>
-            </LinearLayout>
-        </androidx.cardview.widget.CardView>
-
-<!--        <androidx.cardview.widget.CardView-->
-<!--            android:layout_width="350dp"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:cardCornerRadius="20dp"-->
-<!--            android:layout_margin="20dp"-->
-<!--            android:layout_gravity="center">-->
-<!--            <LinearLayout-->
-<!--                android:layout_width="wrap_content"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:gravity="center"-->
-<!--                android:orientation="vertical"-->
-<!--                android:layout_margin="20dp">-->
-<!--                <ImageView-->
-<!--                    android:id="@+id/capaLivro2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginVertical="10dp"-->
-<!--                    android:contentDescription="@string/capaLivro"-->
-<!--                    app:srcCompat="@drawable/livrocard"/>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/tituloLivro2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_marginVertical="10dp"-->
-<!--                    android:text="@string/tituloAutorLivro"-->
-<!--                    android:textStyle="bold"-->
-<!--                    android:textColor="#3D3569"/>-->
-<!--                <TextView-->
-<!--                    android:id="@+id/sinopseLivro2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:text="@string/textoLorem"-->
-<!--                    android:textColor="#000000"/>-->
-<!--                <Button-->
-<!--                    android:id="@+id/comecarLeitura2"-->
-<!--                    android:layout_width="wrap_content"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:layout_gravity="start"-->
-<!--                    android:text="@string/botaoComecarLeituraTexto"-->
-<!--                    android:textAllCaps="false"-->
-<!--                    android:backgroundTint="#3D3569"/>-->
-<!--            </LinearLayout>-->
-<!--        </androidx.cardview.widget.CardView>-->
+            android:layout_weight="1"/>
 
         <androidx.cardview.widget.CardView
             android:layout_width="match_parent"
             android:layout_height="58dp"
-            android:layout_marginTop="85dp"
             android:backgroundTint="#fefefe">
 
             <LinearLayout

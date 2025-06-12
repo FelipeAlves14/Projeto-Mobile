@@ -1,28 +1,55 @@
 package com.example.pratiler;
-
-import static android.widget.Toast.LENGTH_SHORT;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.ImageView;
-import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.pratiler.adapters.RecyclerViewLivro.LivroAdapter;
+import com.example.pratiler.models.Livro;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class LivrosPopularesActivity extends AppCompatActivity {
+
+    private List<Livro> listarLivros(){
+        List<Livro> livros = new ArrayList<Livro>();
+
+        livros.add(new Livro("O Senhor dos Anéis", "Uma jornada épica para destruir o Um Anel e salvar a Terra-média das trevas.",
+                "J.R.R. Tolkien", "https://exemplo.com/capa-senhor-aneis.jpg"));
+
+        livros.add(new Livro("1984", "Um clássico distópico sobre vigilância governamental e controle da mente.",
+                "George Orwell", "https://exemplo.com/capa-1984.jpg"));
+
+        livros.add(new Livro("Orgulho e Preconceito", "A história de Elizabeth Bennet e Mr. Darcy em uma crítica à sociedade inglesa do século XIX.",
+                "Jane Austen", "https://exemplo.com/capa-orgulho-preconceito.jpg"));
+
+        livros.add(new Livro("Cem Anos de Solidão", "A saga da família Buendía e a mágica cidade de Macondo.",
+                "Gabriel García Márquez", "https://exemplo.com/capa-cem-anos.jpg"));
+
+        livros.add(new Livro("O Pequeno Príncipe", "A jornada filosófica de um príncipe infantil por diversos planetas.",
+                "Antoine de Saint-Exupéry", "https://exemplo.com/capa-pequeno-principe.jpg"));
+
+        return livros;
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_livros_populares);
+        RecyclerView livros = findViewById(R.id.livros);
+        livros.setLayoutManager(new LinearLayoutManager(this));
+        livros.setAdapter(new LivroAdapter(listarLivros()));
         ImageView feed = findViewById(R.id.postagens);
         feed.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,20 +64,6 @@ public class LivrosPopularesActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent i = new Intent("ATUALIZAR_LEITURA");
                 startActivity(i);
-            }
-        });
-        Button comecarLeitura = findViewById(R.id.comecarLeitura1);
-        comecarLeitura.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                TextView livroTitulo = findViewById(R.id.tituloLivro1);
-                String[] livroTituloSeparado = livroTitulo.getText().toString().split(" - ");
-                String livro = livroTituloSeparado[0];
-                String autor = livroTituloSeparado[1];
-                comecarLeitura.setText("Lendo");
-                comecarLeitura.setTextColor(0xff221D57);
-                comecarLeitura.setBackgroundColor(0xfffefefe);
-                Toast.makeText(LivrosPopularesActivity.this, "Você iniciou a leitura de " + livro + " de " + autor, LENGTH_SHORT).show();
             }
         });
         ViewCompat.setOnApplyWindowInsetsListener(findViewById(R.id.main), (v, insets) -> {
