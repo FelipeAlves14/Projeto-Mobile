@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import 'livros_populares_view.dart';
-import 'feed_view.dart';
-import 'atualizar_leitura_view.dart';
 
 class Rodape extends StatelessWidget {
   final String selecionado;
@@ -20,12 +17,10 @@ class Rodape extends StatelessWidget {
             Image.asset('livro.png', height: 30),
             IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.of(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const LivrosPopularesPage(),
-                  ),
-                );
+                  rootNavigator: true,
+                ).pushNamed('/livros_populares');
               },
               icon: Image.asset(
                 'estrela${selecionado == 'populares' ? "_selecionado" : ""}.png',
@@ -34,10 +29,7 @@ class Rodape extends StatelessWidget {
             ),
             IconButton(
               onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const FeedPage()),
-                );
+                Navigator.of(context, rootNavigator: true).pushNamed('/');
               },
               icon: Image.asset(
                 'postagens${selecionado == 'postagens' ? "_selecionado" : ""}.png',
@@ -47,12 +39,10 @@ class Rodape extends StatelessWidget {
             Image.asset('seguindo.png', height: 30),
             IconButton(
               onPressed: () {
-                Navigator.push(
+                Navigator.of(
                   context,
-                  MaterialPageRoute(
-                    builder: (context) => const AtualizarLeituraPage(),
-                  ),
-                );
+                  rootNavigator: true,
+                ).pushNamed('/atualizar_leitura');
               },
               icon: Image.asset(
                 'postar${selecionado == 'postar' ? "_selecionado" : ""}.png',
