@@ -8,24 +8,21 @@ class LivrosPopularesPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        backgroundColor: const Color(0xFFF9F8FF),
-        body: Column(
-          children: [
-            Cabecalho(),
+    return Scaffold(
+      backgroundColor: const Color(0xFFF9F8FF),
+      body: Column(
+        children: [
+          Cabecalho(),
 
-            Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) => livroPopular(),
-              ),
+          Expanded(
+            child: ListView.builder(
+              itemCount: 10,
+              itemBuilder: (context, index) => livroPopular(),
             ),
+          ),
 
-            Rodape(selecionado: "populares"),
-          ],
-        ),
+          Rodape(selecionado: "populares"),
+        ],
       ),
     );
   }
