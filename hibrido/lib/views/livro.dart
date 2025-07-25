@@ -46,7 +46,7 @@ Widget livroPopular() {
                       foregroundColor: Colors.white,
                     ),
                     child: Text(
-                      'Começar leitura',
+                      naEstante ? 'Lendo' : 'Começar leitura',
                       style: TextStyle(
                         color: Color(naEstante ? 0xFF221D57 : 0xFFFEFEFE),
                         fontSize: 14,

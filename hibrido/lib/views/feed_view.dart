@@ -11,7 +11,6 @@ Future<List<Postagem>> fetchPostagens() async {
   final response = await http.get(Uri.parse('$apiUrl/postagens'));
 
   if (response.statusCode == 200) {
-    // Se a chamada for bem-sucedida, analise os dados e retorne uma lista de postagens
     return jsonDecode(response.body);
   } else {
     throw Exception('Falha ao carregar postagens');
