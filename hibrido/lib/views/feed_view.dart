@@ -1,25 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:pratiler_mobile/utils.dart';
+import 'package:pratiler_mobile/controllers/feed_controller.dart';
 import 'package:pratiler_mobile/models/postagem.dart';
 import 'package:pratiler_mobile/views/cabecalho.dart';
 import 'package:pratiler_mobile/views/postagem.dart';
 import 'package:pratiler_mobile/views/rodape.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 
-Future<List<Postagem>> fetchPostagens() async {
-  final response = await http.get(Uri.parse('$apiUrl/postagens'));
-
-  if (response.statusCode == 200) {
-    return jsonDecode(response.body);
-  } else {
-    throw Exception('Falha ao carregar postagens');
-  }
+Future<dynamic> fetchPostagens() {
+  return FeedController.fetchPostagens();
 }
 
 class FeedPage extends StatelessWidget {
-  const FeedPage({super.key});
-
+  FeedPage({super.key});
+  late Future<dynamic> postagens = fetchPostagens();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -31,9 +23,22 @@ class FeedPage extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Center(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) => postagem(),
+              child: FutureBuilder(
+                future: postagens,
+                builder: (context, snapshot) {
+                  if (snapshot.connectionState == ConnectionState.waiting) {
+                    return CircularProgressIndicator();
+                  } else if (snapshot.hasError) {
+                    return Text('Error: ${snapshot.error}');
+                  } else {
+                    final postagens = snapshot.data!;
+                    return ListView.builder(
+                      itemCount: postagens.length,
+                      itemBuilder: (context, index) =>
+                          postagem(data: Postagem.fromJson(postagens[index])),
+                    );
+                  }
+                },
               ),
             ),
           ),

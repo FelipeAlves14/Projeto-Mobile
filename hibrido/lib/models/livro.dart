@@ -4,7 +4,7 @@ class Livro {
   final String autor;
   final String sinopse;
   final int nPaginas;
-  final String imagemUrl;
+  final String capa;
 
   Livro({
     required this.id,
@@ -12,6 +12,17 @@ class Livro {
     required this.autor,
     required this.sinopse,
     required this.nPaginas,
-    required this.imagemUrl,
+    required this.capa,
   });
+
+  static Livro fromJson(Map<String, dynamic> json) {
+    return Livro(
+      id: json['id'],
+      titulo: json['titulo'],
+      autor: json['autor'],
+      sinopse: json['sinopse'],
+      nPaginas: json['n_paginas'],
+      capa: json['capa'],
+    );
+  }
 }

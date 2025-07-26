@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
-import 'dart:math';
+import 'package:pratiler_mobile/models/postagem.dart';
+import 'package:pratiler_mobile/utils.dart';
 
-Widget postagem() {
+Widget postagem({required Postagem data}) {
   bool seguindo = false;
-  bool curtido = false;
-  int curtidas = Random().nextInt(100);
+  bool curtido = data.curtido;
+  int curtidas = data.curtidas;
 
   return StatefulBuilder(
     builder: (context, StateSetter setState) => Center(
@@ -24,9 +25,9 @@ Widget postagem() {
                   const SizedBox(width: 10),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children: [
                       Text(
-                        'Leitor Exemplo',
+                        data.leitor.username,
                         style: TextStyle(
                           color: Color(0xFF221D57),
                           fontWeight: FontWeight.bold,
@@ -35,7 +36,7 @@ Widget postagem() {
                       ),
                       SizedBox(height: 4),
                       Text(
-                        '14 de julho de 2025',
+                        '${data.data.day} de ${getMes(data.data.month)} de ${data.data.year}',
                         style: TextStyle(
                           color: Color(0xFF6761A8),
                           fontSize: 12,
@@ -48,7 +49,7 @@ Widget postagem() {
               const SizedBox(height: 10),
 
               ElevatedButton(
-                onPressed: () => setState(() => seguindo = !seguindo),
+                onPressed: () => setState(() => seguindo = seguindo),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(seguindo ? 0xFFFEFEFE : 0xFF221D57),
                   foregroundColor: Colors.white,
@@ -64,25 +65,16 @@ Widget postagem() {
 
               const SizedBox(height: 10),
 
-              const Text(
-                'Páginas lidas: 56/300',
-                style: TextStyle(color: Color(0xFF221D57), fontSize: 14),
+              Text(
+                'Da página ${data.paginaInicial} até a página ${data.paginaFinal}',
+                style: const TextStyle(color: Color(0xFF221D57), fontSize: 14),
               ),
               const SizedBox(height: 6),
 
-              const Text(
-                'O livro está ficando interessante...',
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                  color: Colors.black,
-                ),
-              ),
-
-              const Padding(
+              Padding(
                 padding: EdgeInsets.symmetric(vertical: 10),
                 child: Text(
-                  'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor...',
+                  data.texto,
                   style: TextStyle(fontSize: 14, color: Colors.black87),
                 ),
               ),
@@ -96,8 +88,8 @@ Widget postagem() {
                       height: 24,
                     ),
                     onPressed: () => setState(() {
-                      curtido = !curtido;
                       curtidas += curtido ? 1 : -1;
+                      curtido = !curtido;
                     }),
                   ),
                   const SizedBox(width: 8),
