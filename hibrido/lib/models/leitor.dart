@@ -2,15 +2,9 @@ class Leitor {
   final int id;
   final String username;
 
-  Leitor({
-    required this.id,
-    required this.username,
-  });
+  Leitor({required this.id, required this.username});
 
   static Leitor fromJson(Map<String, dynamic> json) {
-    return Leitor(
-      id: json['id'],
-      username: json['username'],
-    );
+    return Leitor(id: json['id'], username: json['username']);
   }
 }

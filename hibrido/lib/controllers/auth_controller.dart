@@ -1,4 +1,3 @@
-import 'package:flutter/widgets.dart';
 import 'package:flutter_secure_storage/flutter_secure_storage.dart';
 import 'package:pratiler_mobile/utils.dart';
 import 'package:http/http.dart' as http;
@@ -7,10 +6,13 @@ import 'dart:convert';
 class AuthController {
   static bool isAuthenticated = false;
   static final FlutterSecureStorage storage = FlutterSecureStorage();
-  static Future<void> login(String username, String password) async {
+  static Future<void> login() async {
     final response = await http.post(
       Uri.parse('$apiUrl/auth/pair'),
-      body: jsonEncode({'email': username, 'password': password}),
+      body: jsonEncode({
+        'email': 'favasconcelos09@gmail.com',
+        'password': '12345',
+      }),
     );
 
     final data = jsonDecode(response.body);
