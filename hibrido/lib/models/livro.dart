@@ -19,7 +19,7 @@ class Livro {
     return Livro(
       id: json['id'],
       titulo: json['titulo'],
-      autor: json['autor'],
+      autor: json['autor']['nome'],
       sinopse: json['sinopse'],
       nPaginas: json['n_paginas'],
       capa: json['capa'],
