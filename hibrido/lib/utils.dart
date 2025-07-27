@@ -19,8 +19,9 @@ enum MESES {
 
 String getMes(int mes) {
   bool ehMarco = mes == 3;
-  return MESES.values[mes - 1].toString().replaceAll(
-    ehMarco ? 'c' : '',
-    ehMarco ? 'ç' : '',
-  );
+  return MESES.values[mes - 1]
+      .toString()
+      .split('.')
+      .last
+      .replaceAll(ehMarco ? 'c' : '', ehMarco ? 'ç' : '');
 }
