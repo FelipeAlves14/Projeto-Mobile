@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:pratiler_mobile/models/postagem.dart';
 import 'package:pratiler_mobile/utils.dart';
+import 'package:pratiler_mobile/controllers/postagem_controller.dart';
+
+Future<dynamic> curtirPostagem(int postagemId) {
+  return PostagemController.curtirPostagem(postagemId);
+}
 
 Widget postagem({required Postagem data}) {
   bool seguindo = false;
@@ -49,7 +54,7 @@ Widget postagem({required Postagem data}) {
               const SizedBox(height: 10),
 
               ElevatedButton(
-                onPressed: () => setState(() => seguindo = seguindo),
+                onPressed: () => setState(() => seguindo = !seguindo),
                 style: ElevatedButton.styleFrom(
                   backgroundColor: Color(seguindo ? 0xFFFEFEFE : 0xFF221D57),
                   foregroundColor: Colors.white,
@@ -87,10 +92,13 @@ Widget postagem({required Postagem data}) {
                       width: 24,
                       height: 24,
                     ),
-                    onPressed: () => setState(() {
-                      curtidas += curtido ? 1 : -1;
-                      curtido = !curtido;
-                    }),
+                    onPressed: () async {
+                      int newCurtidas = await curtirPostagem(data.id);
+                      setState(() {
+                        curtidas = newCurtidas;
+                        curtido = !curtido;
+                      });
+                    },
                   ),
                   const SizedBox(width: 8),
                   Text(
