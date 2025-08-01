@@ -37,4 +37,8 @@ class Postagem {
       paginaFinal: json['pagina_final'],
     );
   }
+
+  Map<String, dynamic> toSql() {
+    return { 'id': this.id, 'texto': this.texto, 'leitor': this.leitor.id, 'livro': this.livro.id, 'data': this.data, 'curtido': this.curtido, 'curtidas': this.curtidas, 'paginaInicial': this.paginaInicial, 'paginaFinal': this.paginaFinal }
+  }
 }

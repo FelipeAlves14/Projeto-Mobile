@@ -25,4 +25,8 @@ class Livro {
       capa: json['capa'],
     );
   }
+
+  Map<String, dynamic> toSql() {
+    return { 'id': this.id, 'titulo': this.titulo, 'autor': this.autor, 'sinopse': this.sinopse, 'nPaginas': this.nPaginas, 'capa': this.capa }
+  }
 }
